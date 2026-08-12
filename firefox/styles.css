@@ -1,0 +1,413 @@
+/* --- استایل متن‌های هایلایت شده --- */
+.my-saved-highlight {
+    color: #000;
+    border-radius: 2px;
+    box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+.my-saved-highlight[data-has-note="true"] {
+    border-bottom: 2px solid #333; 
+}
+.my-saved-highlight:hover {
+    filter: brightness(0.9);
+}
+
+/* --- پالت رنگ --- */
+#my-highlight-palette {
+    position: absolute;
+    z-index: 2147483647;
+    background-color: #222;
+    padding: 6px 8px;
+    border-radius: 50px;
+    display: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    gap: 8px;
+    align-items: center;
+}
+#my-highlight-palette::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #222 transparent transparent transparent;
+}
+
+.color-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: transform 0.2s;
+    box-sizing: border-box;
+}
+.color-btn:hover {
+    transform: scale(1.15);
+    border-color: #fff;
+}
+.palette-divider {
+    width: 1px;
+    height: 18px;
+    background-color: #555;
+    margin: 0 2px;
+}
+#custom-color-trigger {
+    background: conic-gradient(red, yellow, lime, aqua, blue, magenta, red);
+    position: relative;
+}
+#custom-color-input {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+}
+#confirm-color-btn {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+#confirm-color-btn svg { width: 16px; height: 16px; fill: white; }
+
+
+/* --- منوی عملیات --- */
+#my-action-menu {
+    position: absolute;
+    z-index: 2147483647;
+    background-color: #333;
+    border-radius: 10px;
+    padding: 6px 8px;
+    display: none;
+    gap: 6px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+}
+#my-action-menu::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #333 transparent transparent transparent;
+}
+.action-btn {
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    padding: 9px 11px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: background-color 0.15s;
+    min-width: 36px;
+    min-height: 36px;
+}
+.action-btn:hover { background-color: #555; }
+.action-btn svg { width: 20px; height: 20px; fill: currentColor; }
+#btn-delete:hover { background-color: #d32f2f; }
+.has-note-active { color: #ffeb3b !important; }
+
+
+/* --- پنجره پاپ‌آپ یادداشت --- */
+#my-note-popup {
+    position: absolute;
+    z-index: 2147483648;
+    background-color: #fff;
+    width: 240px;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    border: 1px solid #ccc;
+    font-family: sans-serif;
+}
+#my-note-popup textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+#my-note-popup textarea:focus { outline: none; border-color: #2196f3; }
+
+.note-actions { display: flex; justify-content: space-between; align-items: center; }
+.note-left-actions { display: flex; gap: 6px; }
+
+.note-btn-save {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+}
+.note-btn-cancel {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+#btn-open-drawing {
+    background: #f3f4f6;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+#btn-open-drawing:hover { background: #e5e7eb; }
+#btn-open-drawing svg { fill: #555; }
+
+/* ناحیه پیش‌نمایش عکس در پاپ‌آپ */
+.note-preview-area {
+    display: none;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    background: #fafafa;
+    cursor: zoom-in; /* نشانگر قابلیت کلیک */
+}
+.note-preview-area:hover {
+    border-color: #2563eb;
+}
+#note-drawing-preview {
+    width: 100%;
+    height: auto;
+    display: block;
+    max-height: 150px;
+    object-fit: contain;
+}
+#btn-remove-drawing {
+    width: 100%;
+    background: #ffebee;
+    color: #c62828;
+    border: none;
+    padding: 6px;
+    font-size: 11px;
+    cursor: pointer;
+    border-top: 1px solid #ffcdd2;
+    font-weight: bold;
+}
+#btn-remove-drawing:hover { background: #ffcdd2; }
+
+
+/* --- مودال نقاشی تمام صفحه --- */
+#my-drawing-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2147483650;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(4px);
+    align-items: center;
+    justify-content: center;
+    font-family: sans-serif;
+}
+
+.drawing-modal-content {
+    background: white;
+    width: 90%;
+    height: 90%;
+    max-width: 1000px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.drawing-header {
+    padding: 16px 24px;
+    border-bottom: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f9fafb;
+    z-index: 10;
+}
+.drawing-header h3 { margin: 0; font-size: 18px; color: #111827; }
+.drawing-header-actions { display: flex; gap: 8px; }
+
+.drawing-btn {
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+.btn-secondary { background: white; border-color: #d1d5db; color: #374151; }
+.btn-secondary:hover { background: #f3f4f6; }
+.btn-danger { background: #fee2e2; color: #991b1b; }
+.btn-danger:hover { background: #fecaca; }
+.btn-primary { background: #2563eb; color: white; }
+.btn-primary:hover { background: #1d4ed8; }
+
+/* تغییرات مهم برای اسکرول خوردن */
+.drawing-canvas-area {
+    flex: 1;
+    position: relative;
+    background: #f3f4f6;
+    overflow: auto; /* اسکرول فعال شد */
+    cursor: crosshair;
+    display: flex;
+    justify-content: center; /* فقط وسط‌چین افقی */
+    align-items: flex-start; /* شروع از بالا */
+    touch-action: none;
+    padding: 20px; /* فاصله برای زیبایی */
+}
+
+#the-canvas {
+    background: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    display: block;
+    margin-bottom: 60px;
+}
+
+/* دکمه شناور افزودن صفحه */
+#btn-add-page {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 20;
+    transition: transform 0.2s;
+}
+#btn-add-page:hover {
+    background: #4338ca;
+    transform: translateX(-50%) scale(1.05);
+}
+
+.drawing-toolbar {
+    padding: 12px;
+    background: white;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    z-index: 10;
+}
+
+.tool-circle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px #e5e7eb;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+.tool-circle:hover, .tool-circle.active {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 2px #2563eb;
+}
+
+.tool-action-btn {
+    padding: 8px 12px;
+    background: #f3f4f6;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #4b5563;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.tool-action-btn:hover, .tool-action-btn.active {
+    background: #e5e7eb;
+    color: #111827;
+}
+.tool-action-btn.active {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+/* --- لایت‌باکس (نمایشگر تصویر بزرگ) --- */
+#my-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 2147483655; /* بالاتر از همه چیز */
+    background: rgba(0,0,0,0.9);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.lightbox-content {
+    max-width: 100%;
+    max-height: 90vh;
+    overflow: auto; /* اسکرول خوردن تصویر */
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    background-color: #fff;
+}
+
+.lightbox-content img {
+    display: block;
+    max-width: 100%; /* اگر تصویر خیلی پهن بود فیت شود */
+    height: auto;
+}
+
+#btn-close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: transparent;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+#btn-close-lightbox svg { width: 30px; height: 30px; stroke: white; }

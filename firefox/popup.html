@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body { 
+      width: 240px; 
+      padding: 15px; 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: #F8FAFC; 
+      margin: 0;
+      color: #04364A;
+    }
+    .header-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h3 { 
+      margin: 0; 
+      font-size: 18px; 
+      color: #04364A; 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      letter-spacing: 0.5px;
+    }
+    .logo-icon { color: #FFD369; display: flex; align-items: center; filter: drop-shadow(0 0 4px rgba(255, 211, 105, 0.6));}
+    .subtitle {
+      font-size: 11px;
+      color: #176B87;
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    button svg { width: 18px; height: 18px; }
+    
+    .btn-list { background: linear-gradient(135deg, #176B87, #04364A); color: white; }
+    .btn-list:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(23, 107, 135, 0.3); }
+    
+    .btn-clear-site { background-color: white; color: #176B87; border: 2px solid #64CCC5; }
+    .btn-clear-site:hover { background-color: #f0fbfc; border-color: #176B87; }
+    
+    .btn-clear-all { background-color: #fff0f0; color: #dc2626; border: 1px solid #ffcdd2; }
+    .btn-clear-all:hover { background-color: #fee2e2; }
+    
+    hr { border: 0; border-top: 1px dashed #cbd5e1; margin: 15px 0; }
+  </style>
+</head>
+<body>
+  
+  <div class="header-container">
+    <h3>
+      <span class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M9 21h6"></path><path d="M9 18h6"></path><path d="M10.83 15C9.07 13.9 8 11.95 8 9.78 8 7.14 10.24 5 13 5s5 2.14 5 4.78c0 2.17-1.07 4.12-2.83 5.22"></path></svg>
+      </span> 
+      LumiNote
+    </h3>
+    <div class="subtitle">Quick Notes, Illuminated Insights</div>
+  </div>
+  
+  <button id="btn-list" class="btn-list">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+    View All Highlights
+  </button>
+  
+  <hr>
+
+  <button id="btn-clear-site" class="btn-clear-site">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+    Clear This Page
+  </button>
+  
+  <button id="btn-clear-all" class="btn-clear-all">
+    <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+    Reset Everything
+  </button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

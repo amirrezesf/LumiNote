@@ -1,6 +1,6 @@
 <div align="center">
 
-![LumiNote](promote.png)
+![LumiNote](./liminote-banner.png)
 
 # LumiNote
 
@@ -96,7 +96,7 @@ All data stays on your device. LumiNote does not collect, transmit, or share any
 
 ## 📄 License
 
-This project is provided as-is. See the repository for details.
+Released under the [MIT License](LICENSE). © 2026 AmirReza Esfandiyari.
 
 ---
 

@@ -1,6 +1,6 @@
 <div align="center">
 
-![LumiNote](promote.png)
+![LumiNote](liminote-banner.png)
 
 # LumiNote (لومی‌نوت)
 
@@ -106,7 +106,7 @@ Highlighter/
 
 ## 📄 مجوز
 
-این پروژه «همان‌طور که هست» ارائه شده است. برای جزئیات به مخزن مراجعه کنید.
+تحت [مجوز MIT](LICENSE) منتشر شده است. © ۲۰۲۶ امیررضا اسفندیاری.
 
 </div>
 
